@@ -5,30 +5,19 @@ environment:
   global:
     TWINE_USERNAME: __token__
     TWINE_PASSWORD:
-      secure: 7YD82RnQJ9rnJE/josiQ/V6VWh+tlhmJpWVM/u5jGdl8XqyhsLEKF5MNMYd4ZYxA/MGaYBCQ525d4m9RSDk9RB+uIFMZJLnl1eOjHQVyJ+ZZmJb65tqd/fR5hybhWtVhn+0wANiI4uqrojFFVy1HjfBYSrvyk+7LLDxfSVTqkhMEhbZbWBpGP/3VET1gPy+qdlWcL7quwhSBPSbKpyMi/cqvp5/yFLAM615RRABgQUDpRyXxtBTReRgWSxi9kUXXqR18ZvQlvMLnAsEnGFRenA==
+      secure: VoGG/EuhGzEl4bEJGJFaW1j/BaXu4mW3a+oCCOS0cch0FUmgNzOmo7iK8kSaTcEekRnx5aPCzRYPXBSErcTrlQhRrUlSdxaxl4BEGcoeY7eozaWTo4pmpWFtxdEB9rXZvbQtQAABfLneK9et0jZi6pSX6s4nQudlWOwY3taVjfbcSlg/Q123YOGCxx9p/ljkW7j8wp8335wZGc3AJdjMMSH3Y+ypid598l87pgkVL3TCjZesz/lPMeiCFWlK9nL5
   matrix:
   - GENERATOR: 'Visual Studio 14'
-    PYTHON: 'C:\Python310\python.exe'
+    PYTHON: 'C:\Python314\python.exe'
   - GENERATOR: 'Visual Studio 14 Win64'
-    PYTHON: 'C:\Python310-x64\python.exe'
-  - GENERATOR: 'Visual Studio 14'
-    PYTHON: 'C:\Python311\python.exe'
-  - GENERATOR: 'Visual Studio 14 Win64'
-    PYTHON: 'C:\Python311-x64\python.exe'
-  - GENERATOR: 'Visual Studio 14'
-    PYTHON: 'C:\Python312\python.exe'
-  - GENERATOR: 'Visual Studio 14 Win64'
-    PYTHON: 'C:\Python312-x64\python.exe'
-  - GENERATOR: 'Visual Studio 14'
-    PYTHON: 'C:\Python313\python.exe'
-  - GENERATOR: 'Visual Studio 14 Win64'
-    PYTHON: 'C:\Python313-x64\python.exe'
+    PYTHON: 'C:\Python314-x64\python.exe'
 
 matrix:
   fast_finish: true
 
 init:
 - cmd: |
+    choco install python314 --prerelease --params '"/InstallDir:C:\Python314-x64 /InstallDir32:C:\Python314"'
     "%PYTHON%" -m pip install -U pip wheel
 
 build_script:
